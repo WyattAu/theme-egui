@@ -23,7 +23,10 @@ tier = "L2"
 [dependencies]
 theme-kit = { path = "../theme-kit", version = "0.1.0" }
 color-kit = { path = "../color-kit", version = "0.1.0" }
-egui = { version = "0.37", default-features = false }
+# egui 0.36 and 0.37 share the Visuals shape this adapter uses (verified
+# against both sources), so the crate compiles against either. chisel-doc
+# pins 0.36; the estate's own development tracks 0.37.
+egui = { version = ">=0.36, <0.38", default-features = false }
 
 [lints.rust]
 missing_docs = "deny"

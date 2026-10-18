@@ -34,6 +34,13 @@ per field in `tests/lowering.rs`:
 Unset roles are errors, never invented colours. Dark vs light is decided by
 the surface's lightness, mirroring `theme-kit`'s VS Code emitter.
 
+## Version support
+
+Compiles against **egui 0.36 and 0.37** — the `Visuals` shape it uses
+(`override_text_color: Option<Color32>`, `WidgetVisuals`, `Selection`) is
+identical across both, verified against each release's source. That is why
+`chisel-doc` (pinned to 0.36) can dogfood it with no egui major bump.
+
 ## Why it is its own crate
 
 Adapters are the only place in the L1/L2 half that names a toolkit
@@ -42,5 +49,5 @@ Adapters are the only place in the L1/L2 half that names a toolkit
 cross-adapter property test ("same role → same RGBA everywhere") has a place
 to live.
 
-Tests: 6 + doctest, clippy `-D warnings` clean. Targets egui 0.37.
+Tests: 6 + doctest, clippy `-D warnings` clean. egui 0.36–0.37.
 Licensed under MIT OR Apache-2.0.

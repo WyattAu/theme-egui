@@ -1,0 +1,40 @@
+[package]
+name = "theme-egui"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+authors = ["Wyatt Au <wyatt_au@protonmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/WyattAu/theme-egui"
+description = "egui/epaint lowering for theme-kit — the adapter that makes the estate token contract real in chisel-doc, chisel-platform's future front-end, and any egui app. One file of placement, zero colour maths"
+readme = "README.md"
+keywords = ["egui", "theme", "design-tokens", "accessibility"]
+categories = ["gui"]
+exclude = [".github/", "supply-chain/"]
+
+# Layer model: docs/layers.md in WyattAu/engineering-standards.
+# L2 — domain: composition adapters sit one layer above `theme-kit` (L1);
+# they place resolved roles into a toolkit's types and do no colour maths
+# (ADR-0004 §2.3: no L1/L2 crate names a toolkit — the *adapter* is the one
+# narrow, deliberate exception, which is why each is its own crate).
+[package.metadata.layers]
+tier = "L2"
+
+[dependencies]
+theme-kit = { path = "../theme-kit", version = "0.1.0" }
+color-kit = { path = "../color-kit", version = "0.1.0" }
+egui = { version = "0.37", default-features = false }
+
+[lints.rust]
+missing_docs = "deny"
+unsafe_code = "deny"
+
+# Adapter discipline (mirrors theme-kit): every conversion is total — an
+# unset role is an error the caller sees, never a silent default colour.
+# Test targets lift these at file level with justification.
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+indexing_slicing = "deny"
+undocumented_unsafe_blocks = "deny"

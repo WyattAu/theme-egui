@@ -1,12 +1,12 @@
 [package]
 name = "theme-egui"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.85"
 authors = ["Wyatt Au <wyatt_au@protonmail.com>"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/theme-egui"
-description = "egui/epaint lowering for theme-kit — the adapter that makes the estate token contract real in chisel-doc, chisel-platform's future front-end, and any egui app. One file of placement, zero colour maths"
+description = "egui/epaint lowering for theme-kit: the adapter that makes the estate token contract real in chisel-doc, chisel-platform's future front-end, and any egui app. One file of placement, zero colour maths"
 readme = "README.md"
 keywords = ["egui", "theme", "design-tokens", "accessibility"]
 categories = ["gui"]
